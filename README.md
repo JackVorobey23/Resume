@@ -1,4 +1,2 @@
 # Resume
 My resume 🍉
-
-🦔🍎
