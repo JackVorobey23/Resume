@@ -151,6 +151,68 @@ a:hover::before {
     margin-bottom: 15px;
 }
 
+@media screen and (max-width: 1150px) {
+    .container {
+        width: 650px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+
+    .main-info,
+    .info_container {
+        flex-direction: column;
+    }
+
+    .info_container {
+        align-items: center;
+    }
+
+    .info__block:not(:last-child) {
+        margin-bottom: 20px;
+    }
+
+    .experiences {
+        margin-right: 0;
+    }
+
+    .container {
+        width: 70%;
+        overflow: scroll;
+    }
+
+    .move-button {
+        font-size: 60px;
+    }
+
+    .move-button__down {
+        top: 100px;
+        bottom: auto;
+    }
+
+    .move-button__down::before {
+        content: "↓";
+    }
+
+    .move-button__up::before {
+        content: "↑";
+    }
+
+    .resume {
+        justify-content: end;
+    }
+
+}
+
+@media screen and (max-width: 500px) {
+    .roadmap {
+        display: none;
+    }
+
+    .resume {
+        justify-content: center;
+    }
+}
 
 .contact-info__header,
 .contact-info__sub-header {
