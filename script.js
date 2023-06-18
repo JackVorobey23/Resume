@@ -6,7 +6,7 @@ const musicContainer = document.getElementsByClassName("music__container")[0];
 
 const ratings = [
     {url: "https://open.spotify.com/embed/track/7Dt8Wo4xOk8nCURko8g2Jh?utm_source=generator", rating: 9},
-    {url: "https://open.spotify.com/embed/track/1sg1GCp3lRZzyuqBXoy599?utm_source=generator", rating: 5},
+    {url: "https://open.spotify.com/embed/track/1sg1GCp3lRZzyuqBXoy599?utm_source=generator", rating: 10},
     {url: "https://open.spotify.com/embed/track/4deOFCxaBQ9uYqmD5bhmXW?utm_source=generator", rating: 7}
 ]
 
