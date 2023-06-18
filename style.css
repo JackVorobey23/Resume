@@ -1,0 +1,415 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+    overflow: hidden;
+    --primary-text-color: #181820;
+    --secondary-text-color: #5c5c62;
+    --durability-text-color: #6a737d9c;
+    --icon-color: #6a737d;
+    --border-color: #ff9a0045;
+    --text-decoration-color: #ff9a00;
+}
+
+a {
+    text-decoration: none;
+    color: #18272F;
+    font-weight: 700;
+    position: relative;
+}
+
+a::before {
+    content: '';
+    background-color: #ffd500;
+    position: absolute;
+    left: 0;
+    bottom: 3px;
+    width: 100%;
+    height: 8px;
+    z-index: -1;
+    transition: all .3s ease-in-out;
+}
+
+a:hover::before {
+    bottom: 0;
+    height: 100%;
+}
+
+.container {
+    background-color: #ffffffe3;
+    position: absolute;
+    margin: 50px auto;
+    max-width: 900px;
+    border: 1px solid #f5f5f5;
+    box-shadow: 1px 1px 7px 7px #f5f5f5;
+    padding: 40px;
+    width: 1000px;
+    height: 550px;
+    transition: all 1s;
+}
+
+.move-button {
+    display: block;
+    cursor: pointer;
+    color: #ffd500;
+    font-size: 30px;
+    border: none;
+    background-color: transparent;
+    position: absolute;
+    right: 30px;
+    transition: all 0.5s;
+}
+
+.move-button:hover {
+    text-shadow: #ffc400 1px 0 13px;
+    transform: translateY(-5px);
+    transition: all 0.5s;
+}
+
+.move-button__up {
+    top: 20px;
+}
+
+.move-button__down {
+    bottom: 20px;
+}
+
+.move-button__down::before {
+    content: "↓ Next page ↓";
+}
+
+.move-button__up::before {
+    content: "↑ Previous page ↑";
+}
+
+.roadmap {
+    position: fixed;
+    left: 30px;
+    top: 50px;
+    width: 100px;
+    height: 500px;
+}
+
+.roadmap-part {
+    cursor: pointer;
+    width: 100%;
+    border-left: 2px solid #6e6d6b;
+    padding-top: 30px;
+    padding-left: 8px;
+    transition: all 0.3s;
+}
+
+.roadmap-circle {
+    border-radius: 30px;
+    height: 10px;
+    width: 10px;
+    border: 2px solid #6e6d6b;
+    transition: all 0.3s;
+}
+
+.roadmap-circle__active {
+    border: 2px solid rgb(255, 204, 0);
+    box-shadow: 0 0 5px #ffe600;
+}
+
+.roadmap-part__active {
+    color: #c4b300;
+    border-left: 2px solid #ffe600;
+    text-shadow: 0 0 5px #ffe600;
+}
+
+.fh {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.fv {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.info__block {
+    max-width: 50%;
+}
+
+.resume {
+    display: flex;
+    justify-content: center;
+    margin: 50px auto;
+}
+
+.resume__block {
+    border-bottom: 3px solid var(--border-color);
+    padding-bottom: 30px;
+    margin-bottom: 15px;
+}
+
+@media screen and (max-width: 1150px) {
+    .container {
+        width: 650px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+
+    .main-info,
+    .info_container {
+        flex-direction: column;
+    }
+
+    .info_container {
+        align-items: center;
+    }
+
+    .info__block:not(:last-child) {
+        margin-bottom: 20px;
+    }
+
+    .experiences {
+        margin-right: 0;
+    }
+
+    .container {
+        width: 70%;
+        overflow: scroll;
+    }
+
+    .move-button {
+        font-size: 60px;
+    }
+
+    .move-button__down {
+        top: 100px;
+        bottom: auto;
+    }
+
+    .move-button__down::before {
+        content: "↓";
+    }
+
+    .move-button__up::before {
+        content: "↑";
+    }
+
+    .resume {
+        justify-content: end;
+    }
+
+}
+
+@media screen and (max-width: 500px) {
+    .roadmap {
+        display: none;
+    }
+
+    .resume {
+        justify-content: center;
+    }
+}
+
+.contact-info__header,
+.contact-info__sub-header {
+    text-align: center;
+}
+
+.contact-info__header {
+    color: var(--primary-text-color);
+    margin-bottom: 15px;
+    text-decoration-color: var(--text-decoration-color);
+    text-decoration-line: underline;
+}
+
+.contact-info__sub-header {
+    color: var(--secondary-text-color);
+    margin-bottom: 30px;
+}
+
+.info__block {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.info__block--center {
+    justify-content: center;
+}
+
+.contact-info__item {
+    color: var(--secondary-text-color);
+    text-decoration: none;
+    display: flex;
+    justify-content: start;
+}
+
+.contact-info__item:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.contact-info__item-icon-wrapper {
+    margin-right: 10px;
+    width: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.contact-info__item-icon path {
+    fill: var(--icon-color);
+}
+
+.contact-info__item-icon {
+    height: 1.1428rem;
+    vertical-align: text-bottom;
+}
+
+.contact-info__avatar {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border: 3px solid;
+    border-color: var(--text-decoration-color);
+}
+
+.intro {
+    display: flex;
+    justify-content: start;
+}
+
+.intro__icon-wrapper {
+    margin-right: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.intro__icon {
+    height: 1.1428rem;
+    vertical-align: text-bottom;
+}
+
+.intro__icon path {
+    fill: var(--text-decoration-color);
+}
+
+.intro_text {
+    color: var(--secondary-text-color);
+    text-align: justify;
+}
+
+.skills {
+    margin-top: 50px;
+    justify-content: space-around;
+}
+
+.skills__header {
+    color: var(--secondary-text-color);
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.skills__text {
+    color: var(--secondary-text-color);
+    text-align: justify;
+}
+
+.experiences {
+    flex: 1 1 60%;
+    margin-right: 50px;
+}
+
+.experiences__header {
+    color: var(--secondary-text-color);
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.experiences__company-header-durability {
+    color: var(--durability-text-color);
+    text-align: left;
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+.experiences__company-header-name {
+    color: var(--primary-text-color);
+    text-decoration-color: var(--text-decoration-color);
+    text-decoration-line: underline;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.experiences__company-project {
+    margin-left: 15px;
+    margin-bottom: 25px;
+}
+
+.experiences__company-project-role {
+    color: var(--durability-text-color);
+    text-align: left;
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+.experiences__company-project-name {
+    color: var(--primary-text-color);
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.experiences__company-project-responsibilities {
+    color: var(--secondary-text-color);
+    padding-left: 20px;
+}
+
+.additional-info {
+    flex: 1 1 40%;
+}
+
+.additional-info__education {
+    margin-bottom: 20px;
+}
+
+.additional-info__education-header {
+    color: var(--secondary-text-color);
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.additional-info__education-university-durability {
+    color: var(--durability-text-color);
+    text-align: left;
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+.additional-info__education-university-speciality {
+    color: var(--primary-text-color);
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.additional-info__education-university-name {
+    color: var(--secondary-text-color);
+}
+
+.additional-info__languages {
+    margin-bottom: 20px;
+}
+
+.additional-info__languages-header {
+    color: var(--secondary-text-color);
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.additional-info__languages-item {
+    color: var(--secondary-text-color);
+    margin-top: 40px;
+}
