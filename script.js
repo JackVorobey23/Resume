@@ -1,10 +1,16 @@
-let containers = [...document.getElementsByClassName("container")];
+const containers = [...document.getElementsByClassName("container")];
+const roadmapParst = [...document.getElementsByClassName("roadmap-part")];
+const roadmapCircles = [...document.getElementsByClassName("roadmap-circle")];
+const musicContainer = document.getElementsByClassName("music__container")[0];
 
-let displayedContainers = [-1, 0, 1]; //indexes of the displayed containers
 
-let theme = "light";
+const ratings = [
+    {url: "https://open.spotify.com/embed/track/7Dt8Wo4xOk8nCURko8g2Jh?utm_source=generator", rating: 9},
+    {url: "https://open.spotify.com/embed/track/1sg1GCp3lRZzyuqBXoy599?utm_source=generator", rating: 5},
+    {url: "https://open.spotify.com/embed/track/4deOFCxaBQ9uYqmD5bhmXW?utm_source=generator", rating: 7}
+]
 
-let darkThemeColors = [
+const darkThemeColors = [
     {key: "--primary-text-color", value: "#dcdcff"},
     {key: "--secondary-text-color", value: "#ba9ffb"},
     {key: "--durability-text-color", value: "#8b8b8b"},
@@ -16,7 +22,7 @@ let darkThemeColors = [
     {key: "--soft-background-color", value: "#2b2c3d"},
 ]
 
-let lightThemeColors = [
+const lightThemeColors = [
     {key: "--primary-text-color", value: "#181820"},
     {key: "--secondary-text-color", value: "#5c5c62"},
     {key: "--durability-text-color", value: "#6a737d9c"},
@@ -25,19 +31,13 @@ let lightThemeColors = [
     {key: "--text-decoration-color", value: "#ff9a00"},
     {key: "--hover-color", value: "#ffc400"},
     {key: "--background-color", value: "#fff"},
-    {key: "--soft-background-color", value: "#2b2c3d"},
+    {key: "--soft-background-color", value: "#ffecc3"},
 ]
-/*
-    --primary-text-color: #181820;
-    --secondary-text-color: #5c5c62;
-    --durability-text-color: #6a737d9c;
-    --icon-color: #6a737d;
-    --border-color: #f5f5f5;
-    --text-decoration-color: #ff9a00;
-    --hover-color: #ffc400;
-    --background-color: #fff;
-    --soft-background-color: #2b2c3d;
-*/
+
+let displayedContainers = [-1, 0, 1]; //indexes of the displayed containers
+
+let theme = "light";
+
 window.moveDown = () => {
     displayedContainers = displayedContainers.map(e => e + 1);
     moveContainers();
@@ -50,8 +50,6 @@ window.moveUp = () => {
 
 
 function updateRoadmap(lastActiveIndex) {
-    let roadmapParst = [...document.getElementsByClassName("roadmap-part")];
-    let roadmapCircles = [...document.getElementsByClassName("roadmap-circle")];
 
     for (const key in roadmapParst) {
         
@@ -70,14 +68,11 @@ function updateRoadmap(lastActiveIndex) {
 function moveContainers() {
     updateRoadmap(displayedContainers[1])
     for (const key in containers) {
-        console.log(key);
 
         if (Number(key) === displayedContainers[0]) {
             containers[key].style.transform = "scale(0.5,0.5)";
             containers[key].style.transform += "translate(0px,-600px)";
             containers[key].style.zIndex = "0";
-
-            console.log("asd")
         }
         else if (Number(key) === displayedContainers[1]) {
             containers[key].style.transform = "";
@@ -111,4 +106,49 @@ window.changeTheme = () => {
     theme = theme === "light" ? "dark" : "light";
 }
 
+function musicBuilder() {
+    for (const rating of ratings) {
+
+        let musicBlock = document.createElement("div");
+
+        let musicIframe = document.createElement("iframe")
+
+        let musicRating = document.createElement("div");
+
+        musicBlock.classList.add("music__block");
+
+        musicRating.classList.add("music-rating");
+
+        musicIframe.src = rating.url;
+        musicIframe.allow = "autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture";
+        musicIframe.classList.add("music-iframe");
+        musicIframe.height = "80px"
+
+        ratingBuilder(rating.rating, musicRating);
+
+        musicBlock.appendChild(musicIframe);
+        musicBlock.appendChild(musicRating);
+
+
+        musicContainer.appendChild(musicBlock);
+    }
+} 
+
+function ratingBuilder(rating, musicRatingElement) {
+    
+    for (let i = 1; i <= 10; i++) {
+        
+        let musicImage = document.createElement("img");
+        
+        musicImage.src = "assets/silly_cat.png";
+        musicImage.classList.add("music-image");
+
+        if (i > rating) {
+            musicImage.classList.add("music-image__transparent")
+        }
+        musicRatingElement.appendChild(musicImage);
+        
+    }
+}
+musicBuilder();
 moveContainers();
