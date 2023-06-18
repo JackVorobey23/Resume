@@ -21,6 +21,39 @@ body {
     padding: 0 30px;
     max-width: 900px;
 }
+.move-button {
+    display: block;
+    cursor: pointer;
+    color: #ffd500;
+    font-size: 30px;
+    border: none;
+    background-color: transparent;
+    position: absolute;
+    right: 30px;
+    transition: all 0.5s;
+}
+
+.move-button:hover {
+    text-shadow: #ffc400 1px 0 13px;
+    transform: translateY(-5px);
+    transition: all 0.5s;
+}
+
+.move-button__up {
+    top: 20px;
+}
+
+.move-button__down {
+    bottom: 20px;
+}
+
+.move-button__down::before {
+    content: "↓ Next page ↓";
+}
+
+.move-button__up::before {
+    content: "↑ Previous page ↑";
+}
 
 .fh {
     display: flex;
