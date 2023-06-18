@@ -207,8 +207,19 @@ a:hover::before {
 @media screen and (max-width: 500px) {
     .roadmap {
         display: none;
+      
     }
-
+    .info__block {
+        max-width: 100%;
+    }
+    .additional-info__education-university > * {
+        margin-top: 22px;
+    }
+    .container {
+        padding: 5px;
+        width: 90%;
+        overflow: scroll;
+    }
     .resume {
         justify-content: center;
     }
