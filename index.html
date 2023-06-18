@@ -1,12 +1,203 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <title>Résumé</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-  </head>
-  <body>
-    ― Hello World! &#x1F92F; &#x1F349;
-  </body>
+    <script src="https://kit.fontawesome.com/092d6e5b69.js" crossorigin="anonymous"></script>
+    <script src="script.js" type="module"></script>
+</head>
+
+
+<body>
+    <main>
+        <div class="resume">
+            <div class="roadmap">
+
+                <div onclick="moveContainersToPosition(0)" class="roadmap-part">
+                    <p>General</p>
+                    <div class="roadmap-circle"></div>
+                </div>
+                <div onclick="moveContainersToPosition(1)" class="roadmap-part">
+                    <p>Skills</p>
+                    <div class="roadmap-circle"></div>
+                </div>
+                <div onclick="moveContainersToPosition(2)" class="roadmap-part">
+                    <p>Experience</p>
+                    <div class="roadmap-circle"></div>
+                </div>
+                <div onclick="moveContainersToPosition(3)" class="roadmap-part">
+                    <p>Education</p>
+                    <div class="roadmap-circle"></div>
+                </div>
+                <div onclick="moveContainersToPosition(4)" class="roadmap-part">
+                    <p>Languages</p>
+                    <div class="roadmap-circle"></div>
+                </div>
+            </div>
+            <div class="container">
+                <h1 class="contact-info__header">Vorobiov Yevhenii</h1>
+                <h3 class="contact-info__sub-header">Binary 2023 | JS</h3>
+
+                <div class="info_container fh">
+                    <div class="info__block">
+                        <div>
+                            <i class="fa-solid fa-location-dot fa-fw"></i>Beryslav, Kherson Oblast🍉
+                        </div>
+                        <div>
+                            <i class="fa-solid fa-calendar fa-fw"></i>18 years old
+                        </div>
+                        <div>
+                            <i class="fa-regular fa-envelope fa-fw"></i>eygehavv27@gmail.com
+                        </div>
+                    </div>
+                    <div class="info__block info__block--center">
+                        <img class="contact-info__avatar" src="assets/avatar.png" alt="Avatar">
+                    </div>
+                    <div class="info__block">
+                        <div>
+                            <i class="fa-light fa-phone-rotary"></i>+38 0952535583
+                        </div>
+                        <div>
+                            <i class="fa-brands fa-telegram"></i> @Zhenyk23
+                        </div>
+                    </div>
+                </div>
+
+                <button class="move-button move-button__down" onclick="moveDown()"></button>
+            </div>
+            <div class="container">
+                <div class="resume__block">
+                    <div class="skills">
+                        <div class="info_container fh">
+
+                            <div class="info__block">
+
+                                <h3 class="skills__header">Hard Skills</h3>
+                                <p class="skills__text">JavaScript </p>
+                                <p class="skills__text">TypeScript </p>
+                                <p class="skills__text">HTML/CSS </p>
+                                <p class="skills__text">Node.js </p>
+                                <p class="skills__text">React</p>
+                                <p class="skills__text">Git </p>
+                                <p class="skills__text">Sql</p>
+                                <p class="skills__text">Firebase</p>
+                                <p class="skills__text">RESTful APIs </p>
+                            </div>
+
+                            <div class="info__block">
+
+                                <h3 class="skills__header">Soft Skills</h3>
+                                <p class="skills__text">Continuous Learning</p>
+                                <p class="skills__text">Communication</p>
+                                <p class="skills__text">Adaptability</p>
+                                <p class="skills__text">Teamwork</p>
+                                <p class="skills__text">Time Management</p>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <button class="move-button move-button__down" onclick="moveDown()"></button>
+                <button class="move-button move-button__up" onclick="moveUp()"></button>
+            </div>
+            <div class="container">
+                <h3 class="experiences__header">Experience</h3>
+                <div class="experiences__company">
+                    <div class="experiences__company-header">
+                        <span class="experiences__company-header-durability">March 2023</span>
+                        <h3 class="experiences__company-header-name">Radency Internship</h3>
+                    </div>
+                    <div class="info_container fh">
+                        <div class="info__block">
+                            <div class="experiences__company-project">
+                                <h3 class="experiences__company-project-name">ASP.NET Core | Library (<a
+                                        href="https://github.com/JackVorobey23/Radency-HomeTask-2">link</a>)</h3>
+                                <ul class="experiences__company-project-responsibilities">
+                                    <li>Web API creation</li>
+                                    <li>Layered architecture</li>
+                                    <li>Data validating</li>
+                                    <li>Framework Core</li>
+                                </ul>
+                            </div>
+                            <div class="experiences__company-project">
+                                <h3 class="experiences__company-project-name">Angular | Library (<a
+                                        href="https://github.com/JackVorobey23/Radency-HomeTask-3">link</a>)</h3>
+                                <ul class="experiences__company-project-responsibilities">
+                                    <li>Angular technologies</li>
+                                    <li>interaction with the web API</li>
+                                    <li>Component structure</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="info__block">
+                            <div class="experiences__company-project">
+                                <h3 class="experiences__company-project-name">Chess | Angular & .NET (<a
+                                        href="https://github.com/JackVorobey23/Chess">link</a>)</h3>
+                                <ul class="experiences__company-project-responsibilities">
+                                    <li>Using websockets with SignalR</li>
+                                    <li>Using OOP patterns | Chain, Proxy, Strategy, Iterator, Builder, DTO, Repository,
+                                    </li>
+                                    <li>Component structure</li>
+                                    <li>Component structure</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="move-button move-button__down" onclick="moveDown()"></button>
+                <button class="move-button move-button__up" onclick="moveUp()"></button>
+            </div>
+            <div class="container">
+                <div class="additional-info__education">
+                    <h3 class="additional-info__education-header">Education</h3>
+                    <div class="additional-info__education-university">
+                        <span class="additional-info__education-university-durability">2021 - Present</span>
+                        <h3 class="additional-info__education-university-speciality">Bachelor of Software Engineering</h3>
+                        <p class="additional-info__education-university-name">Igor Sikorsky Kyiv Polytechnic Institute (KPI), Kyiv, Ukraine</p>
+                        <br>
+                        <p>Useful completed courses:</p>
+                        <ul>
+                            <li>Fundamentals of Programming (2 semesters)</li>
+                            <li>Algorithms and Data Structures (2 semesters)</li>
+                            <li>Group Dynamics and Communication</li>
+                            <li>Object-Oriented Programming (2 semesters)</li>
+                            <li>Algorithmic Support of Information Retrieval Systems</li>
+                            <li>Mathematical Support of Information Retrieval Systems</li>
+                            <li>Programming (JS from EPAM)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <button class="move-button move-button__down" onclick="moveDown()"></button>
+                <button class="move-button move-button__up" onclick="moveUp()"></button>
+            </div>
+            <div class="container">
+                <div class="additional-info__languages">
+                    <h3 class="additional-info__languages-header">Languages</h3>
+                    <p class="additional-info__languages-item">
+                        Ukrainian - native
+                    </p>
+                    <p class="additional-info__languages-item">
+                        English - B2+
+                    </p>
+                    <p class="additional-info__languages-item">
+                        Southeastern dialect (surzhyk)🍉 - native
+                    </p>
+                    <p class="additional-info__languages-item">
+                        Russian - trying to forget 
+                    </p>
+                </div>
+
+                <button class="move-button move-button__up" onclick="moveUp()"></button>
+            </div>
+        </div>
+    </main>
+</body>
+
 </html>

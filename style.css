@@ -7,7 +7,7 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.5;
-
+    overflow: hidden;
     --primary-text-color: #181820;
     --secondary-text-color: #5c5c62;
     --durability-text-color: #6a737d9c;
@@ -16,10 +16,111 @@ body {
     --text-decoration-color: #ff9a00;
 }
 
+a {
+    text-decoration: none;
+    color: #18272F;
+    font-weight: 700;
+    position: relative;
+}
+
+a::before {
+    content: '';
+    background-color: #ffd500;
+    position: absolute;
+    left: 0;
+    bottom: 3px;
+    width: 100%;
+    height: 8px;
+    z-index: -1;
+    transition: all .3s ease-in-out;
+}
+
+a:hover::before {
+    bottom: 0;
+    height: 100%;
+}
+
 .container {
-    margin: 0 auto;
-    padding: 0 30px;
+    background-color: #ffffffe3;
+    position: absolute;
+    margin: 50px auto;
     max-width: 900px;
+    border: 1px solid #f5f5f5;
+    box-shadow: 1px 1px 7px 7px #f5f5f5;
+    padding: 40px;
+    width: 1000px;
+    height: 550px;
+    transition: all 1s;
+}
+
+.move-button {
+    display: block;
+    cursor: pointer;
+    color: #ffd500;
+    font-size: 30px;
+    border: none;
+    background-color: transparent;
+    position: absolute;
+    right: 30px;
+    transition: all 0.5s;
+}
+
+.move-button:hover {
+    text-shadow: #ffc400 1px 0 13px;
+    transform: translateY(-5px);
+    transition: all 0.5s;
+}
+
+.move-button__up {
+    top: 20px;
+}
+
+.move-button__down {
+    bottom: 20px;
+}
+
+.move-button__down::before {
+    content: "↓ Next page ↓";
+}
+
+.move-button__up::before {
+    content: "↑ Previous page ↑";
+}
+
+.roadmap {
+    position: fixed;
+    left: 30px;
+    top: 50px;
+    width: 100px;
+    height: 500px;
+}
+
+.roadmap-part {
+    cursor: pointer;
+    width: 100%;
+    border-left: 2px solid #6e6d6b;
+    padding-top: 30px;
+    padding-left: 8px;
+    transition: all 0.3s;
+}
+
+.roadmap-circle {
+    border-radius: 30px;
+    height: 10px;
+    width: 10px;
+    border: 2px solid #6e6d6b;
+    transition: all 0.3s;
+}
+
+.roadmap-circle__active {
+    border: 2px solid rgb(255, 204, 0);
+    box-shadow: 0 0 5px #ffe600;
+}
+
+.roadmap-part__active {
+    color: #c4b300;
+    border-left: 2px solid #ffe600;
+    text-shadow: 0 0 5px #ffe600;
 }
 
 .fh {
@@ -34,12 +135,14 @@ body {
     justify-content: space-between;
 }
 
+.info__block {
+    max-width: 50%;
+}
+
 .resume {
+    display: flex;
+    justify-content: center;
     margin: 50px auto;
-    border: 1px solid #f5f5f5;
-    box-shadow: 1px 1px 7px 7px #f5f5f5;
-    padding: 30px 0;
-    max-width: 900px;
 }
 
 .resume__block {
@@ -48,23 +151,66 @@ body {
     margin-bottom: 15px;
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 1150px) {
+    .container {
+        width: 650px;
+    }
+}
+
+@media screen and (max-width: 900px) {
 
     .main-info,
-    .contact_info_container {
+    .info_container {
         flex-direction: column;
     }
 
-    .contact_info_container {
+    .info_container {
         align-items: center;
     }
 
-    .contact-info__block:not(:last-child) {
+    .info__block:not(:last-child) {
         margin-bottom: 20px;
     }
 
     .experiences {
         margin-right: 0;
+    }
+
+    .container {
+        width: 70%;
+        overflow: scroll;
+    }
+
+    .move-button {
+        font-size: 60px;
+    }
+
+    .move-button__down {
+        top: 100px;
+        bottom: auto;
+    }
+
+    .move-button__down::before {
+        content: "↓";
+    }
+
+    .move-button__up::before {
+        content: "↑";
+    }
+
+    .resume {
+        justify-content: end;
+    }
+
+}
+
+@media screen and (max-width: 500px) {
+    .roadmap {
+        display: none;
+    }
+
+    .resume {
+        justify-content: center;
     }
 }
 
@@ -85,13 +231,13 @@ body {
     margin-bottom: 30px;
 }
 
-.contact-info__block {
+.info__block {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-.contact-info__block--center {
+.info__block--center {
     justify-content: center;
 }
 
@@ -155,6 +301,11 @@ body {
 .intro_text {
     color: var(--secondary-text-color);
     text-align: justify;
+}
+
+.skills {
+    margin-top: 50px;
+    justify-content: space-around;
 }
 
 .skills__header {
@@ -260,4 +411,5 @@ body {
 
 .additional-info__languages-item {
     color: var(--secondary-text-color);
+    margin-top: 40px;
 }
