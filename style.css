@@ -3,7 +3,6 @@
     padding: 0;
     box-sizing: border-box;
 }
-
 :root {
     --primary-text-color: #181820;
     --secondary-text-color: #5c5c62;
@@ -15,9 +14,8 @@
     --background-color: #fff;
     --soft-background-color: #ffecc3;
 }
-
 body {
-    background-color: var(--background-color);
+    background-color: var( --background-color);
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.5;
     overflow: hidden;
@@ -50,7 +48,6 @@ a:hover::before {
 
 .container {
     background-color: var(--background-color);
-    border-radius: 10px;
     position: absolute;
     margin: 50px auto;
     max-width: 900px;
@@ -95,9 +92,8 @@ a:hover::before {
 .move-button__up::before {
     content: "↑ Previous page ↑";
 }
-
 .dark-theme__button {
-
+    
     padding: 10px;
     right: 30px;
     top: 30px;
@@ -109,14 +105,12 @@ a:hover::before {
     padding: 20px;
     transition: all 0.3s;
     cursor: pointer;
-}
-
-.dark-theme__button:hover {
+  }
+  .dark-theme__button:hover {
     transition: all 0.3s;
     transform: translateY(-5px);
     box-shadow: 0 5px 5px var(--hover-color);
-}
-
+  }
 .roadmap {
     position: fixed;
     left: 30px;
@@ -198,9 +192,6 @@ a:hover::before {
     margin-bottom: 30px;
 }
 
-.info_container {
-    margin-bottom: 15px;
-}
 .info__block {
     display: flex;
     flex-direction: column;
@@ -242,13 +233,11 @@ a:hover::before {
     border: 3px solid;
     border-color: var(--text-decoration-color);
 }
-
 .default__header {
     color: var(--secondary-text-color);
     text-align: left;
     margin-bottom: 20px;
 }
-
 .intro {
     display: flex;
     justify-content: start;
@@ -371,7 +360,6 @@ a:hover::before {
 
 .music__block {
     display: flex;
-    margin-top: 20px;
 }
 
 .music-iframe {
@@ -387,18 +375,17 @@ a:hover::before {
 .music-image {
     width: 20px;
     height: 20px;
-    margin: 21px 5px 0 5px;
+    margin: 5px;
 }
-
 .music-image__transparent {
     opacity: 0.5;
 }
 
 .music__sub-header {
     display: flex;
-    align-items: center;
+
     color: var(--secondary-text-color);
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 
@@ -452,35 +439,28 @@ a:hover::before {
     .resume {
         justify-content: end;
     }
-
     .music__block {
         display: inline-block;
-        margin-top: 10px;
     }
-
 
 }
 
 @media screen and (max-width: 500px) {
     .roadmap {
         display: none;
-
+      
     }
-
     .info__block {
         max-width: 100%;
     }
-
-    .additional-info__education-university>* {
+    .additional-info__education-university > * {
         margin-top: 22px;
     }
-
     .container {
         padding: 5px;
         width: 90%;
         overflow: scroll;
     }
-
     .resume {
         justify-content: center;
     }
